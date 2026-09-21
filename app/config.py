@@ -30,8 +30,15 @@ class Config:
         "CORS_ALLOWED_ORIGINS",
         "http://localhost:5173,http://localhost:3000",
     )
+
     CORS_ALLOWED_ORIGINS = [
-        origen.strip() for origen in _cors.split(",") if origen.strip()
+        origen.strip()
+        for origen in _cors.split(",")
+        if origen.strip()
     ]
+
     SECRET_KEY = os.getenv("SECRET_KEY", "").strip()
-JWT_EXP_MINUTES = int(os.getenv("JWT_EXP_MINUTES", "15").strip())
+
+    JWT_EXP_MINUTES = int(
+        os.getenv("JWT_EXP_MINUTES", "15").strip()
+    )
